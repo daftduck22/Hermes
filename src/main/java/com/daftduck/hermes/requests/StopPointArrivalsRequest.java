@@ -1,6 +1,6 @@
 package com.daftduck.hermes.requests;
 
-public class StopPointArrivalsRequest {
+public class StopPointArrivalsRequest implements TfLRequest {
 
     private final String appId;
     private final String appKey;
@@ -12,8 +12,9 @@ public class StopPointArrivalsRequest {
         this.stopPointId = stopPointId;
     }
 
+    @Override
     public String getRequest() {
-        return String.format("https://api.tfl.gov.uk/StopPoint/%s/Arrivals?app_id=%s&app_key=%s", stopPointId, appId, appKey);
+        return String.format("%s/StopPoint/%s/Arrivals?app_id=%s&app_key=%s", API_URL, stopPointId, appId, appKey);
     }
 
 }
