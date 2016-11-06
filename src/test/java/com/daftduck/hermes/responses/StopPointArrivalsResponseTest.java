@@ -1,5 +1,6 @@
 package com.daftduck.hermes.responses;
 
+import com.daftduck.hermes.HermesException;
 import com.daftduck.hermes.responses.models.StopPointArrival;
 import org.junit.Test;
 
@@ -25,6 +26,11 @@ public class StopPointArrivalsResponseTest {
         assertThat(arrivals.get(0).getNaptanId()).isEqualTo("940GZZLUASL");
         assertThat(arrivals.get(0).getStationName()).isEqualTo("Arsenal Underground Station");
         assertThat(arrivals.get(0).getTimeToStation()).isEqualTo(538);
+    }
+
+    @Test(expected = HermesException.class)
+    public void shouldThrowExceptionWhenUnmappable() throws Exception {
+        new StopPointArrivalsResponse("{}").mapResponse();
     }
 
 }

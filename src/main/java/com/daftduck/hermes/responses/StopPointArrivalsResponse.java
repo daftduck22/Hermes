@@ -1,5 +1,6 @@
 package com.daftduck.hermes.responses;
 
+import com.daftduck.hermes.HermesException;
 import com.daftduck.hermes.responses.models.StopPointArrival;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +21,7 @@ public class StopPointArrivalsResponse {
             return new ObjectMapper().readValue(jsonResponse, new TypeReference<List<StopPointArrival>>() {
             });
         } catch (IOException e) {
-            throw new Exception("Unable to map StopPointArrival response: " + jsonResponse, e);
+            throw new HermesException("Unable to map StopPointArrival response: " + jsonResponse, e);
         }
     }
 

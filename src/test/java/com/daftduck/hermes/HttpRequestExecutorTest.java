@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.fest.assertions.Assertions.assertThat;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -27,9 +26,9 @@ public class HttpRequestExecutorTest {
         assertThat(response).isNotNull().containsIgnoringCase("<title>Google</title>");
     }
 
-    @Test(expected = Exception.class)
-    public void shouldThrowExceptionWhenSomethingsGoesWrong() throws Exception {
-        doThrow(new Exception()).when(request.getRequest());
+    @Test(expected = HermesException.class)
+    public void shouldThrowExceptionWhenSomethingGoesWrong() throws Exception {
+        when(request.getRequest()).thenReturn("http://www.adfadsafewafesd.com");
 
         executor.execute(request);
     }
