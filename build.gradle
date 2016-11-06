@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+  mavenCentral()
+}
+
+jar {
+  manifest {
+    attributes 'Version': version
+  }
+}
+
+dependencies {
+  compile 'com.google.guava:guava:17.0'
+
+  compile 'org.apache.httpcomponents:httpclient:4.5.2'
+  compile 'org.apache.httpcomponents:fluent-hc:4.5.2'
+
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.8.4'
+
+  testCompile 'junit:junit:4.11'  
+  testCompile 'org.mockito:mockito-all:1.9.5'
+  testCompile 'org.easytesting:fest-assert:1.4'
+}
+
