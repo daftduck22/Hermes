@@ -5,6 +5,8 @@ repositories {
   mavenCentral()
 }
 
+archivesBaseName = 'Hermes'
+
 jar {
   manifest {
     attributes 'Version': version
