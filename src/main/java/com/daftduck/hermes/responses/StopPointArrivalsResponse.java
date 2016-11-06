@@ -16,7 +16,7 @@ public class StopPointArrivalsResponse {
         this.jsonResponse = jsonResponse;
     }
 
-    public List<StopPointArrival> mapResponse() throws Exception {
+    public List<StopPointArrival> mapResponse() throws HermesException {
         try {
             return new ObjectMapper().readValue(jsonResponse, new TypeReference<List<StopPointArrival>>() {
             });

@@ -18,7 +18,7 @@ public class Hermes {
         this.appKey = appKey;
     }
 
-    public List<StopPointArrival> requestStopPointArrivals(String stopPointId) throws Exception {
+    public List<StopPointArrival> requestStopPointArrivals(String stopPointId) throws HermesException {
         StopPointArrivalsRequest request = new StopPointArrivalsRequest(appId, appKey, stopPointId);
 
         String response = executor.execute(request);
