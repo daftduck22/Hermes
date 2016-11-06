@@ -1,8 +1,8 @@
 package com.daftduck.hermes;
 
-import com.daftduck.hermes.models.StopPointArrival;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.daftduck.hermes.requests.StopPointArrivalsRequest;
+import com.daftduck.hermes.responses.StopPointArrivalsResponse;
+import com.daftduck.hermes.responses.models.StopPointArrival;
 import org.apache.http.client.fluent.Request;
 
 import java.io.IOException;
@@ -10,26 +10,28 @@ import java.util.List;
 
 public class Hermes {
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
     private final String appId;
     private final String appKey;
 
-    public Hermes(String AppId, String AppKey) {
-        appId = AppId;
-        appKey = AppKey;
+    public Hermes(String appId, String appKey) {
+        this.appId = appId;
+        this.appKey = appKey;
     }
 
-    public List<StopPointArrival> requestStopPointArrivals(String stopPointId) {
-        String url = String.format("https://api.tfl.gov.uk/StopPoint/%s/Arrivals?app_id=%s&app_key=%s", stopPointId, appId, appKey);
+    public List<StopPointArrival> requestStopPointArrivals(String stopPointId) throws Exception {
+        StopPointArrivalsRequest request = new StopPointArrivalsRequest(appId, appKey, stopPointId);
 
+        String response = executeRequest(request);
+
+        return new StopPointArrivalsResponse(response).mapResponse();
+    }
+
+    private String executeRequest(StopPointArrivalsRequest request) throws Exception {
         try {
-            String response = Request.Get(url).execute().returnContent().toString();
-            return OBJECT_MAPPER.readValue(response, new TypeReference<List<StopPointArrival>>() {
-            });
+            return Request.Get(request.getRequest()).execute().returnContent().toString();
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            throw new Exception("Unable to execute request for " + request.getRequest(), e);
         }
     }
+
 }

@@ -1,19 +1,19 @@
 package com.daftduck.hermes;
 
-import com.daftduck.hermes.models.StopPointArrival;
+import com.daftduck.hermes.responses.models.StopPointArrival;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
-import static com.daftduck.hermes.ApiTestCredentials.API_ID;
-import static com.daftduck.hermes.ApiTestCredentials.API_KEY;
 import static org.fest.assertions.Assertions.assertThat;
 
 public class HermesTest {
 
+    @Ignore
     @Test
-    public void shouldFindArrivalsForStopPoint() {
-        Hermes hermes = new Hermes(API_ID, API_KEY);
+    public void shouldFindArrivalsForStopPoint() throws Exception {
+        Hermes hermes = new Hermes("", "");
 
         List<StopPointArrival> stopPointArrivals = hermes.requestStopPointArrivals("490004380W");
 
