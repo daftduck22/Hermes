@@ -1,4 +1,4 @@
-package com.daftduck.hermes.Example;
+package com.daftduck.hermes.example;
 
 import com.daftduck.hermes.Hermes;
 import com.daftduck.hermes.HermesException;
