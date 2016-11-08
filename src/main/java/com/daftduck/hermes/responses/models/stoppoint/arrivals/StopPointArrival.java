@@ -1,4 +1,4 @@
-package com.daftduck.hermes.responses.models;
+package com.daftduck.hermes.responses.models.stoppoint.arrivals;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

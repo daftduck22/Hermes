@@ -1,7 +1,7 @@
 package com.daftduck.hermes.responses;
 
 import com.daftduck.hermes.HermesException;
-import com.daftduck.hermes.responses.models.StopPointArrival;
+import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

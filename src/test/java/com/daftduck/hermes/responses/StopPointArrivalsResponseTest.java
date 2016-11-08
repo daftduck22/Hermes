@@ -1,7 +1,7 @@
 package com.daftduck.hermes.responses;
 
 import com.daftduck.hermes.HermesException;
-import com.daftduck.hermes.responses.models.StopPointArrival;
+import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import org.junit.Test;
 
 import java.util.List;
