@@ -8,7 +8,7 @@ public class StopPointArrivalsRequestTest {
 
     @Test
     public void shouldBuildRequestForRequiredFields() {
-        StopPointArrivalsRequest request = new StopPointArrivalsRequest("app-id", "app-key", "stop-point-id");
+        TfLRequest request = new StopPointArrivalsRequest("app-id", "app-key", "stop-point-id");
 
         assertThat(request.getRequest()).isEqualTo("https://api.tfl.gov.uk/StopPoint/stop-point-id/Arrivals?app_id=app-id&app_key=app-key");
     }
