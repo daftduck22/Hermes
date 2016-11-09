@@ -1,7 +1,7 @@
-package com.daftduck.hermes.responses;
+package com.daftduck.hermes.responses.models.stoppoint.arrivals;
 
-import com.daftduck.hermes.HermesException;
-import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 import java.util.List;
@@ -9,13 +9,13 @@ import java.util.List;
 import static com.daftduck.hermes.responses.HermesTestUtils.loadResourceFor;
 import static org.fest.assertions.Assertions.assertThat;
 
-public class StopPointArrivalsResponseTest {
+public class StopPointArrivalTest {
 
     @Test
     public void shouldMapResponseCorrectly() throws Exception {
         String json = loadResourceFor("StopPointArrivals");
 
-        List<StopPointArrival> arrivals = new StopPointArrivalsResponse(json).mapResponse();
+        List<StopPointArrival> arrivals = new ObjectMapper().readValue(json, new TypeReference<List<StopPointArrival>>() {});
 
         assertThat(arrivals).hasSize(17);
 
@@ -39,11 +39,6 @@ public class StopPointArrivalsResponseTest {
         assertThat(arrivals.get(0).getExpectedArrival()).isEqualTo("2016-11-06T17:26:24.5319519Z");
         assertThat(arrivals.get(0).getTimeToLive()).isEqualTo("2016-11-06T17:26:24.5319519Z");
         assertThat(arrivals.get(0).getModeName()).isEqualTo("tube");
-    }
-
-    @Test(expected = HermesException.class)
-    public void shouldThrowExceptionWhenUnmappable() throws Exception {
-        new StopPointArrivalsResponse("{}").mapResponse();
     }
 
 }

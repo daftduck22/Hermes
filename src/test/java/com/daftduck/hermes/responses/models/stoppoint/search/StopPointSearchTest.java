@@ -1,19 +1,19 @@
-package com.daftduck.hermes.responses;
+package com.daftduck.hermes.responses.models.stoppoint.search;
 
-import com.daftduck.hermes.HermesException;
-import com.daftduck.hermes.responses.models.stoppoint.search.StopPointSearch;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 import static com.daftduck.hermes.responses.HermesTestUtils.loadResourceFor;
 import static org.fest.assertions.Assertions.assertThat;
 
-public class StopPointSearchResponseTest {
+public class StopPointSearchTest {
 
     @Test
     public void shouldMapResponseCorrectly() throws Exception {
         String json = loadResourceFor("StopPointSearch");
 
-        StopPointSearch search = new StopPointSearchResponse(json).mapResponse();
+        StopPointSearch search = new ObjectMapper().readValue(json, new TypeReference<StopPointSearch>() {});
 
         assertThat(search.getType()).isEqualTo("Tfl.Api.Presentation.Entities.SearchResponse, Tfl.Api.Presentation.Entities");
         assertThat(search.getQuery()).isEqualTo("king");
@@ -28,11 +28,6 @@ public class StopPointSearchResponseTest {
         assertThat(search.getMatches().get(0).getName()).isEqualTo("Barking");
         assertThat(search.getMatches().get(0).getLat()).isEqualTo(51.539413);
         assertThat(search.getMatches().get(0).getLon()).isEqualTo(0.080988);
-    }
-
-    @Test(expected = HermesException.class)
-    public void shouldThrowExceptionWhenUnmappable() throws Exception {
-        new StopPointSearchResponse("[]").mapResponse();
     }
 
 }

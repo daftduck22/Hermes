@@ -2,45 +2,43 @@ package com.daftduck.hermes;
 
 import com.daftduck.hermes.requests.StopPointArrivalsRequest;
 import com.daftduck.hermes.requests.StopPointSearchRequest;
-import com.daftduck.hermes.responses.StopPointArrivalsResponse;
-import com.daftduck.hermes.responses.StopPointSearchResponse;
+import com.daftduck.hermes.responses.ResponseMapper;
 import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import com.daftduck.hermes.responses.models.stoppoint.search.StopPointSearch;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.util.List;
 
 public class Hermes {
 
-    private final HttpTfLRequestExecutor executor;
-
     private final String appId;
     private final String appKey;
 
+    private final HttpTfLRequestExecutor executor;
+    private final ResponseMapper mapper;
+
     public Hermes(String appId, String appKey) {
-        this(appId, appKey, new HttpTfLRequestExecutor());
+        this(appId, appKey, new HttpTfLRequestExecutor(), new ResponseMapper());
     }
 
     // Package protected constructor - used for testing
-    Hermes(String appId, String appKey, HttpTfLRequestExecutor executor) {
+    Hermes(String appId, String appKey, HttpTfLRequestExecutor executor, ResponseMapper mapper) {
         this.appId = appId;
         this.appKey = appKey;
         this.executor = executor;
+        this.mapper = mapper;
     }
 
     public List<StopPointArrival> requestStopPointArrivals(String stopPointId) throws HermesException {
         StopPointArrivalsRequest request = new StopPointArrivalsRequest(appId, appKey, stopPointId);
-
         String response = executor.execute(request);
-
-        return new StopPointArrivalsResponse(response).mapResponse();
+        return mapper.mapResponse(response, new TypeReference<List<StopPointArrival>>() {});
     }
 
     public StopPointSearch requestStopPointSearch(String query, String modes) throws HermesException {
         StopPointSearchRequest request = new StopPointSearchRequest(appId, appKey, query).withModes(modes);
-
         String response = executor.execute(request);
-
-        return new StopPointSearchResponse(response).mapResponse();
+        return mapper.mapResponse(response, new TypeReference<StopPointSearch>() {});
     }
 
 }
