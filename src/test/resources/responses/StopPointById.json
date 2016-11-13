@@ -1,0 +1,210 @@
+{
+  "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+  "naptanId": "490G00004380",
+  "modes": [
+    "bus"
+  ],
+  "icsCode": "1004380",
+  "smsCode": "51678",
+  "stopType": "NaptanOnstreetBusCoachStopPair",
+  "stationNaptan": "490G00004380",
+  "lines": [
+    {
+      "$type": "Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities",
+      "id": "132",
+      "name": "132",
+      "uri": "/Line/132",
+      "type": "Line"
+    },
+    {
+      "$type": "Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities",
+      "id": "286",
+      "name": "286",
+      "uri": "/Line/286",
+      "type": "Line"
+    }
+  ],
+  "lineGroup": [
+    {
+      "$type": "Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities",
+      "naptanIdReference": "490004380E",
+      "stationAtcoCode": "490G00004380",
+      "lineIdentifier": [
+        "132",
+        "286"
+      ]
+    },
+    {
+      "$type": "Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities",
+      "naptanIdReference": "490004380W",
+      "stationAtcoCode": "490G00004380",
+      "lineIdentifier": [
+        "132",
+        "286"
+      ]
+    }
+  ],
+  "lineModeGroups": [
+    {
+      "$type": "Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities",
+      "modeName": "bus",
+      "lineIdentifier": [
+        "132",
+        "286"
+      ]
+    }
+  ],
+  "status": true,
+  "id": "490G00004380",
+  "commonName": "Rochester Way / Broad Walk",
+  "placeType": "StopPoint",
+  "additionalProperties": [],
+  "children": [
+    {
+      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+      "naptanId": "490004380E",
+      "indicator": "Stop A",
+      "stopLetter": "A",
+      "modes": [
+        "bus"
+      ],
+      "icsCode": "1004380",
+      "stopType": "NaptanPublicBusCoachTram",
+      "stationNaptan": "490G00004380",
+      "lines": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities",
+          "id": "132",
+          "name": "132",
+          "uri": "/Line/132",
+          "type": "Line"
+        },
+        {
+          "$type": "Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities",
+          "id": "286",
+          "name": "286",
+          "uri": "/Line/286",
+          "type": "Line"
+        }
+      ],
+      "lineGroup": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities",
+          "naptanIdReference": "490004380E",
+          "stationAtcoCode": "490G00004380",
+          "lineIdentifier": [
+            "132",
+            "286"
+          ]
+        }
+      ],
+      "lineModeGroups": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities",
+          "modeName": "bus",
+          "lineIdentifier": [
+            "132",
+            "286"
+          ]
+        }
+      ],
+      "status": true,
+      "id": "490004380E",
+      "commonName": "Rochester Way / Broad Walk",
+      "placeType": "StopPoint",
+      "additionalProperties": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities",
+          "category": "Direction",
+          "key": "CompassPoint",
+          "sourceSystemKey": "Naptan490",
+          "value": "E"
+        },
+        {
+          "$type": "Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities",
+          "category": "Direction",
+          "key": "Towards",
+          "sourceSystemKey": "CountDown",
+          "value": "Eltham"
+        }
+      ],
+      "children": [],
+      "lat": 51.46468,
+      "lon": 0.033975
+    },
+    {
+      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+      "naptanId": "490004380W",
+      "indicator": "Stop W",
+      "stopLetter": "W",
+      "modes": [
+        "bus"
+      ],
+      "icsCode": "1004380",
+      "stopType": "NaptanPublicBusCoachTram",
+      "stationNaptan": "490G00004380",
+      "lines": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities",
+          "id": "132",
+          "name": "132",
+          "uri": "/Line/132",
+          "type": "Line"
+        },
+        {
+          "$type": "Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities",
+          "id": "286",
+          "name": "286",
+          "uri": "/Line/286",
+          "type": "Line"
+        }
+      ],
+      "lineGroup": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities",
+          "naptanIdReference": "490004380W",
+          "stationAtcoCode": "490G00004380",
+          "lineIdentifier": [
+            "132",
+            "286"
+          ]
+        }
+      ],
+      "lineModeGroups": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities",
+          "modeName": "bus",
+          "lineIdentifier": [
+            "132",
+            "286"
+          ]
+        }
+      ],
+      "status": true,
+      "id": "490004380W",
+      "commonName": "Rochester Way / Broad Walk",
+      "placeType": "StopPoint",
+      "additionalProperties": [
+        {
+          "$type": "Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities",
+          "category": "Direction",
+          "key": "CompassPoint",
+          "sourceSystemKey": "Naptan490",
+          "value": "W"
+        },
+        {
+          "$type": "Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities",
+          "category": "Direction",
+          "key": "Towards",
+          "sourceSystemKey": "CountDown",
+          "value": "Greenwich or North Greenwich"
+        }
+      ],
+      "children": [],
+      "lat": 51.464697,
+      "lon": 0.033515
+    }
+  ],
+  "lat": 51.464697,
+  "lon": 0.033515
+}

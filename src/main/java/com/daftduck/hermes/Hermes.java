@@ -1,9 +1,11 @@
 package com.daftduck.hermes;
 
 import com.daftduck.hermes.requests.StopPointArrivalsRequest;
+import com.daftduck.hermes.requests.StopPointByIdRequest;
 import com.daftduck.hermes.requests.StopPointSearchRequest;
 import com.daftduck.hermes.responses.ResponseMapper;
 import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
+import com.daftduck.hermes.responses.models.stoppoint.byid.StopPoint;
 import com.daftduck.hermes.responses.models.stoppoint.search.StopPointSearch;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -39,6 +41,12 @@ public class Hermes {
         StopPointSearchRequest request = new StopPointSearchRequest(appId, appKey, query).withModes(modes);
         String response = executor.execute(request);
         return mapper.mapResponse(response, new TypeReference<StopPointSearch>() {});
+    }
+
+    public StopPoint requestStopPointById(String stopPointId) throws HermesException {
+        StopPointByIdRequest request = new StopPointByIdRequest(appId, appKey, stopPointId);
+        String response = executor.execute(request);
+        return mapper.mapResponse(response, new TypeReference<StopPoint>() {});
     }
 
 }
