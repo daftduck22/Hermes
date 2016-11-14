@@ -1,8 +1,8 @@
 package com.daftduck.hermes;
 
-import com.daftduck.hermes.requests.StopPointArrivalsRequest;
-import com.daftduck.hermes.requests.StopPointByIdRequest;
-import com.daftduck.hermes.requests.StopPointSearchRequest;
+import com.daftduck.hermes.requests.stoppoint.StopPointArrivalsRequest;
+import com.daftduck.hermes.requests.stoppoint.StopPointByIdRequest;
+import com.daftduck.hermes.requests.stoppoint.StopPointSearchRequest;
 import com.daftduck.hermes.responses.ResponseMapper;
 import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import com.daftduck.hermes.responses.models.stoppoint.byid.StopPoint;

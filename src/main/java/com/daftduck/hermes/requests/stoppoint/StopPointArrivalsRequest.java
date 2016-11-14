@@ -1,4 +1,6 @@
-package com.daftduck.hermes.requests;
+package com.daftduck.hermes.requests.stoppoint;
+
+import com.daftduck.hermes.requests.TfLRequest;
 
 public class StopPointArrivalsRequest implements TfLRequest {
 

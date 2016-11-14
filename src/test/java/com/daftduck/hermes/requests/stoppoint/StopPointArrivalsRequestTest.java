@@ -1,5 +1,7 @@
-package com.daftduck.hermes.requests;
+package com.daftduck.hermes.requests.stoppoint;
 
+import com.daftduck.hermes.requests.TfLRequest;
+import com.daftduck.hermes.requests.stoppoint.StopPointArrivalsRequest;
 import org.junit.Test;
 
 import static org.fest.assertions.Assertions.assertThat;

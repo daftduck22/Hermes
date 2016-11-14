@@ -1,4 +1,6 @@
-package com.daftduck.hermes.requests;
+package com.daftduck.hermes.requests.stoppoint;
+
+import com.daftduck.hermes.requests.TfLRequest;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
