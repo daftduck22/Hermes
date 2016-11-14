@@ -2,11 +2,13 @@ package com.daftduck.hermes;
 
 import com.daftduck.hermes.requests.stoppoint.StopPointArrivalsRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointByIdRequest;
+import com.daftduck.hermes.requests.stoppoint.StopPointCategoriesMetadataRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointSearchRequest;
 import com.daftduck.hermes.requests.TfLRequest;
 import com.daftduck.hermes.responses.ResponseMapper;
 import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import com.daftduck.hermes.responses.models.stoppoint.byid.StopPoint;
+import com.daftduck.hermes.responses.models.stoppoint.metadata.StopPointCategory;
 import com.daftduck.hermes.responses.models.stoppoint.search.SearchResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Before;
@@ -36,6 +38,8 @@ public class HermesTest {
     private SearchResponse searchResponse;
     @Mock
     private StopPoint stopPoint;
+    @Mock
+    private List<StopPointCategory> stopPointCategories;
 
     private Hermes hermes;
 
@@ -44,6 +48,16 @@ public class HermesTest {
         when(executor.execute(any(TfLRequest.class))).thenReturn("response-json");
 
         hermes = new Hermes("app-id", "app-key", executor, mapper);
+    }
+
+    @Test
+    public void shouldGetStopPointCategoriesMetadata() throws Exception {
+        when(mapper.mapResponse(eq("response-json"), any(TypeReference.class))).thenReturn(stopPointCategories);
+
+        assertThat(hermes.requestStopPointCategoriesMetadata()).isEqualTo(stopPointCategories);
+
+        verify(executor).execute(any(StopPointCategoriesMetadataRequest.class));
+        verify(mapper).mapResponse(eq("response-json"), any(TypeReference.class));
     }
 
     @Test
