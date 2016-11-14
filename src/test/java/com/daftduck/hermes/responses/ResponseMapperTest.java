@@ -1,7 +1,7 @@
 package com.daftduck.hermes.responses;
 
 import com.daftduck.hermes.HermesException;
-import com.daftduck.hermes.responses.models.stoppoint.search.StopPointSearch;
+import com.daftduck.hermes.responses.models.stoppoint.search.SearchResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Test;
 
@@ -13,13 +13,13 @@ public class ResponseMapperTest {
 
     @Test
     public void shouldMapCorrectly() throws HermesException {
-        StopPointSearch search = mapper.mapResponse("{\"$type\": \"walking\"}", new TypeReference<StopPointSearch>() {});
+        SearchResponse search = mapper.mapResponse("{\"$type\": \"walking\"}", new TypeReference<SearchResponse>() {});
         assertThat(search.getType()).isEqualTo("walking");
     }
 
     @Test(expected = HermesException.class)
     public void shouldThrowExceptionIfUnmappable() throws HermesException {
-        mapper.mapResponse("jdfaslkdsa", new TypeReference<StopPointSearch>() {});
+        mapper.mapResponse("jdfaslkdsa", new TypeReference<SearchResponse>() {});
     }
 
 }

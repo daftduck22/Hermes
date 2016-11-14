@@ -7,7 +7,7 @@ import com.daftduck.hermes.requests.TfLRequest;
 import com.daftduck.hermes.responses.ResponseMapper;
 import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import com.daftduck.hermes.responses.models.stoppoint.byid.StopPoint;
-import com.daftduck.hermes.responses.models.stoppoint.search.StopPointSearch;
+import com.daftduck.hermes.responses.models.stoppoint.search.SearchResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +33,7 @@ public class HermesTest {
     @Mock
     private List<StopPointArrival> stopPointArrivals;
     @Mock
-    private StopPointSearch stopPointSearch;
+    private SearchResponse searchResponse;
     @Mock
     private StopPoint stopPoint;
 
@@ -58,9 +58,9 @@ public class HermesTest {
 
     @Test
     public void shouldSearchForStopPoint() throws Exception {
-        when(mapper.mapResponse(eq("response-json"), any(TypeReference.class))).thenReturn(stopPointSearch);
+        when(mapper.mapResponse(eq("response-json"), any(TypeReference.class))).thenReturn(searchResponse);
 
-        assertThat(hermes.requestStopPointSearch("query", "modes")).isEqualTo(stopPointSearch);
+        assertThat(hermes.requestStopPointSearch("query", "modes")).isEqualTo(searchResponse);
 
         verify(executor).execute(any(StopPointSearchRequest.class));
         verify(mapper).mapResponse(eq("response-json"), any(TypeReference.class));

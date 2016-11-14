@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StopPointSearch {
+public class SearchResponse {
 
     @JsonProperty("$type")
     private String type;
     private String query;
     private long total;
-    private List<StopPointSearchMatch> matches;
+    private List<MatchedStop> matches;
 
     public String getType() {
         return type;
@@ -26,7 +26,7 @@ public class StopPointSearch {
         return total;
     }
 
-    public List<StopPointSearchMatch> getMatches() {
+    public List<MatchedStop> getMatches() {
         return matches;
     }
 

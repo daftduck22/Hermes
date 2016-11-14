@@ -1,7 +1,7 @@
 package com.daftduck.hermes.responses.models.stoppoint.byid;
 
 import com.daftduck.hermes.responses.models.common.AdditionalProperties;
-import com.daftduck.hermes.responses.models.common.Line;
+import com.daftduck.hermes.responses.models.common.Identifier;
 import com.daftduck.hermes.responses.models.common.LineGroup;
 import com.daftduck.hermes.responses.models.common.LineModeGroup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,7 +22,7 @@ public class StopPoint {
     private String smsCode;
     private String stopType;
     private String stationNaptan;
-    private List<Line> lines;
+    private List<Identifier> lines;
     private List<LineGroup> lineGroup;
     private List<LineModeGroup> lineModeGroups;
     private boolean status;
@@ -70,7 +70,7 @@ public class StopPoint {
         return stationNaptan;
     }
 
-    public List<Line> getLines() {
+    public List<Identifier> getLines() {
         return lines;
     }
 

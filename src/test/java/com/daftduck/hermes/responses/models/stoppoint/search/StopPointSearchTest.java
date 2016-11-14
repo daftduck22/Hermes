@@ -13,7 +13,7 @@ public class StopPointSearchTest {
     public void shouldMapResponseCorrectly() throws Exception {
         String json = loadResourceFor("StopPointSearch");
 
-        StopPointSearch search = new ObjectMapper().readValue(json, new TypeReference<StopPointSearch>() {});
+        SearchResponse search = new ObjectMapper().readValue(json, new TypeReference<SearchResponse>() {});
 
         assertThat(search.getType()).isEqualTo("Tfl.Api.Presentation.Entities.SearchResponse, Tfl.Api.Presentation.Entities");
         assertThat(search.getQuery()).isEqualTo("king");
