@@ -56,8 +56,6 @@ public class StopPointByIdTest {
 
         assertThat(stopPoint.getLat()).isEqualTo(51.464697d);
         assertThat(stopPoint.getLon()).isEqualTo(0.033515d);
-
-
     }
 
 }

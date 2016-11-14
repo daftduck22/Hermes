@@ -1,0 +1,86 @@
+[
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "Accessibility",
+    "availableKeys": [
+      "AddtionalInformation",
+      "Toilet",
+      "BlueBadgeCarParkSpaces",
+      "TaxiRankOutsideStation",
+      "LimitedCapacityLift",
+      "SpecificEntranceInstructions",
+      "ToiletNote",
+      "SpecificEntranceRequired",
+      "AccessViaLift"
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "Address",
+    "availableKeys": [
+      "PhoneNo",
+      "Address"
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "Direction",
+    "availableKeys": [
+      "Towards",
+      "CompassPoint"
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "Facility",
+    "availableKeys": [
+      "Escalators",
+      "Boarding Ramps",
+      "Bridge",
+      "Payphones",
+      "ASDA Click and Collect",
+      "Ticket Halls",
+      "Photo Booths",
+      "Left Luggage",
+      "Car park",
+      "Euro Cash Machines",
+      "Cash Machines",
+      "Amazon Lockers",
+      "WiFi",
+      "Other Facilities",
+      "Boarding Ramp",
+      " Euro Cash Machines",
+      "Lifts",
+      "Gates",
+      "Toilets",
+      "Help Points",
+      "Waiting Room"
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "Geo",
+    "availableKeys": [
+      "Zone"
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "Opening Time",
+    "availableKeys": [
+      "SunTo",
+      "SatFrom",
+      "MonFriFrom",
+      "MonFriTo",
+      "SunFrom",
+      "SatTo"
+    ]
+  },
+  {
+    "$type": "Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities",
+    "category": "ServiceInfo",
+    "availableKeys": [
+      "Night"
+    ]
+  }
+]
