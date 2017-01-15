@@ -1,5 +1,6 @@
 package com.daftduck.hermes;
 
+import com.daftduck.hermes.requests.TfLRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointArrivalsRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointByIdRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointCategoriesMetadataRequest;
@@ -18,7 +19,7 @@ public class Hermes {
     private final String appId;
     private final String appKey;
 
-    private final HttpTfLRequestExecutor executor;
+    private final HttpTfLRequestExecutor requestExecutor;
     private final ResponseMapper mapper;
 
     public Hermes(String appId, String appKey) {
@@ -26,35 +27,36 @@ public class Hermes {
     }
 
     // Package protected constructor - used for testing
-    Hermes(String appId, String appKey, HttpTfLRequestExecutor executor, ResponseMapper mapper) {
+    Hermes(String appId, String appKey, HttpTfLRequestExecutor requestExecutor, ResponseMapper mapper) {
         this.appId = appId;
         this.appKey = appKey;
-        this.executor = executor;
+        this.requestExecutor = requestExecutor;
         this.mapper = mapper;
     }
 
+    /* Public Methods */
+
     public List<StopPointCategory> requestStopPointCategoriesMetadata() throws HermesException {
-        StopPointCategoriesMetadataRequest request = new StopPointCategoriesMetadataRequest(appId, appKey);
-        String response = executor.execute(request);
-        return mapper.mapResponse(response, new TypeReference<List<StopPointCategory>>() {});
+        return execute(new StopPointCategoriesMetadataRequest(appId, appKey), new TypeReference<List<StopPointCategory>>() {});
     }
 
     public List<StopPointArrival> requestStopPointArrivals(String stopPointId) throws HermesException {
-        StopPointArrivalsRequest request = new StopPointArrivalsRequest(appId, appKey, stopPointId);
-        String response = executor.execute(request);
-        return mapper.mapResponse(response, new TypeReference<List<StopPointArrival>>() {});
+        return execute(new StopPointArrivalsRequest(appId, appKey, stopPointId), new TypeReference<List<StopPointArrival>>() {});
     }
 
     public SearchResponse requestStopPointSearch(String query, String modes) throws HermesException {
-        StopPointSearchRequest request = new StopPointSearchRequest(appId, appKey, query).withModes(modes);
-        String response = executor.execute(request);
-        return mapper.mapResponse(response, new TypeReference<SearchResponse>() {});
+        return execute(new StopPointSearchRequest(appId, appKey, query).withModes(modes), new TypeReference<SearchResponse>() {});
     }
 
     public StopPoint requestStopPointById(String stopPointId) throws HermesException {
-        StopPointByIdRequest request = new StopPointByIdRequest(appId, appKey, stopPointId);
-        String response = executor.execute(request);
-        return mapper.mapResponse(response, new TypeReference<StopPoint>() {});
+        return execute(new StopPointByIdRequest(appId, appKey, stopPointId), new TypeReference<StopPoint>() {});
+    }
+
+    /* Helper Methods */
+
+    private <T> T execute(TfLRequest request, TypeReference<T> responseType) throws HermesException {
+        String response = requestExecutor.execute(request);
+        return mapper.mapResponse(response, responseType);
     }
 
 }
