@@ -19,7 +19,6 @@ public class StopPointArrivalTest {
 
         assertThat(arrivals).hasSize(17);
 
-        assertThat(arrivals.get(0).getType()).isEqualTo("Tfl.Api.Presentation.Entities.Prediction, Tfl.Api.Presentation.Entities");
         assertThat(arrivals.get(0).getId()).isEqualTo("-1443103753");
         assertThat(arrivals.get(0).getOperationType()).isEqualTo("1");
         assertThat(arrivals.get(0).getVehicleId()).isEqualTo("226");

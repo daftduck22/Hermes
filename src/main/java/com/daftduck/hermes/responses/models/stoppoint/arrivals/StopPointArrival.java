@@ -1,13 +1,10 @@
 package com.daftduck.hermes.responses.models.stoppoint.arrivals;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StopPointArrival {
 
-    @JsonProperty("$type")
-    private String type;
     private String id;
     private String operationType;
     private String vehicleId;
@@ -27,10 +24,6 @@ public class StopPointArrival {
     private String expectedArrival;
     private String timeToLive;
     private String modeName;
-
-    public String getType() {
-        return type;
-    }
 
     public String getId() {
         return id;

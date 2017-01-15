@@ -23,7 +23,6 @@ public class StopPointByModeTest {
         assertThat(stopPoints.getPage()).isEqualTo(1);
 
         StopPoint stopPoint = stopPoints.getStopPoints().get(1);
-        assertThat(stopPoint.getType()).isEqualTo("Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities");
         assertThat(stopPoint.getNaptanId()).isEqualTo("4900ZZDLABR1");
         assertThat(stopPoint.getModes()).containsExactly("dlr");
         assertThat(stopPoint.getIcsCode()).isEqualTo("1003006");

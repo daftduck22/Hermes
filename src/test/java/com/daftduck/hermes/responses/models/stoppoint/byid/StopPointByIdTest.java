@@ -15,7 +15,6 @@ public class StopPointByIdTest {
 
         StopPoint stopPoint = new ObjectMapper().readValue(json, new TypeReference<StopPoint>() {});
 
-        assertThat(stopPoint.getType()).isEqualTo("Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities");
         assertThat(stopPoint.getNaptanId()).isEqualTo("490G00004380");
         assertThat(stopPoint.getModes()).containsExactly("bus");
         assertThat(stopPoint.getIcsCode()).isEqualTo("1004380");
@@ -24,20 +23,17 @@ public class StopPointByIdTest {
         assertThat(stopPoint.getStationNaptan()).isEqualTo("490G00004380");
 
         assertThat(stopPoint.getLines()).hasSize(2);
-        assertThat(stopPoint.getLines().get(0).getApiType()).isEqualTo("Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities");
         assertThat(stopPoint.getLines().get(0).getId()).isEqualTo("132");
         assertThat(stopPoint.getLines().get(0).getName()).isEqualTo("132");
         assertThat(stopPoint.getLines().get(0).getUri()).isEqualTo("/Line/132");
         assertThat(stopPoint.getLines().get(0).getType()).isEqualTo("Line");
 
         assertThat(stopPoint.getLineGroup()).hasSize(2);
-        assertThat(stopPoint.getLineGroup().get(0).getType()).isEqualTo("Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities");
         assertThat(stopPoint.getLineGroup().get(0).getNaptanIdReference()).isEqualTo("490004380E");
         assertThat(stopPoint.getLineGroup().get(0).getStationAtcoCode()).isEqualTo("490G00004380");
         assertThat(stopPoint.getLineGroup().get(0).getLineIdentifier()).containsExactly("132", "286");
 
         assertThat(stopPoint.getLineModeGroups()).hasSize(1);
-        assertThat(stopPoint.getLineModeGroups().get(0).getType()).isEqualTo("Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities");
         assertThat(stopPoint.getLineModeGroups().get(0).getModeName()).isEqualTo("bus");
         assertThat(stopPoint.getLineModeGroups().get(0).getLineIdentifier()).containsExactly("132", "286");
 

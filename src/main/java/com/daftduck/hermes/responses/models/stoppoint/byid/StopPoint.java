@@ -5,15 +5,12 @@ import com.daftduck.hermes.responses.models.common.Identifier;
 import com.daftduck.hermes.responses.models.common.LineGroup;
 import com.daftduck.hermes.responses.models.common.LineModeGroup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StopPoint {
 
-    @JsonProperty("$type")
-    private String type;
     private String naptanId;
     private String indicator;
     private String stopLetter;
@@ -33,10 +30,6 @@ public class StopPoint {
     private List<StopPoint> children;
     private double lat;
     private double lon;
-
-    public String getType() {
-        return type;
-    }
 
     public String getNaptanId() {
         return naptanId;

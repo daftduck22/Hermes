@@ -21,7 +21,6 @@ public class StopPointCategoriesMetadataTest {
 
         StopPointCategory category = stopPointCategories.get(1);
 
-        assertThat(category.getType()).isEqualTo("Tfl.Api.Presentation.Entities.StopPointCategory, Tfl.Api.Presentation.Entities");
         assertThat(category.getCategory()).isEqualTo("Address");
         assertThat(category.getAvailableKeys()).containsExactly("PhoneNo", "Address");
     }

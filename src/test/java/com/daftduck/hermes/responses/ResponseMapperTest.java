@@ -13,8 +13,8 @@ public class ResponseMapperTest {
 
     @Test
     public void shouldMapCorrectly() throws HermesException {
-        SearchResponse search = mapper.mapResponse("{\"$type\": \"walking\"}", new TypeReference<SearchResponse>() {});
-        assertThat(search.getType()).isEqualTo("walking");
+        SearchResponse search = mapper.mapResponse("{\"query\": \"walking\"}", new TypeReference<SearchResponse>() {});
+        assertThat(search.getQuery()).isEqualTo("walking");
     }
 
     @Test(expected = HermesException.class)

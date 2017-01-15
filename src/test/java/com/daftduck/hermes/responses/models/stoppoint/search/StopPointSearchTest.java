@@ -15,13 +15,11 @@ public class StopPointSearchTest {
 
         SearchResponse search = new ObjectMapper().readValue(json, new TypeReference<SearchResponse>() {});
 
-        assertThat(search.getType()).isEqualTo("Tfl.Api.Presentation.Entities.SearchResponse, Tfl.Api.Presentation.Entities");
         assertThat(search.getQuery()).isEqualTo("king");
         assertThat(search.getTotal()).isEqualTo(4);
 
         assertThat(search.getMatches()).hasSize(4);
 
-        assertThat(search.getMatches().get(0).getType()).isEqualTo("Tfl.Api.Presentation.Entities.MatchedStop, Tfl.Api.Presentation.Entities");
         assertThat(search.getMatches().get(0).getIcsId()).isEqualTo("1000015");
         assertThat(search.getMatches().get(0).getModes()).hasSize(4).containsExactly("tube","overground","national-rail","bus");
         assertThat(search.getMatches().get(0).getId()).isEqualTo("HUBBKG");
