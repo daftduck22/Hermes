@@ -2,13 +2,13 @@ package com.daftduck.hermes.requests.stoppoint;
 
 import com.daftduck.hermes.requests.TfLRequest;
 
-public class StopPointByMode implements TfLRequest {
+public class StopPointByModeRequest implements TfLRequest {
 
     private final String appId;
     private final String appKey;
     private final String mode;
 
-    public StopPointByMode(String appId, String appKey, String mode) {
+    public StopPointByModeRequest(String appId, String appKey, String mode) {
         this.appId = appId;
         this.appKey = appKey;
         this.mode = mode;

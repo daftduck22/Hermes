@@ -27,6 +27,11 @@ public class StopPointIntegrationTest {
     }
 
     @Test
+    public void shouldCallStopPointByMode() throws HermesException {
+       assertThat(hermes.requestStopPointByMode("dlr").getStopPoints()).isNotEmpty();
+    }
+
+    @Test
     public void canCallStopPointById() throws HermesException {
         assertThat(hermes.requestStopPointById("940GZZDLSIT").getModes()).contains("bus");
     }

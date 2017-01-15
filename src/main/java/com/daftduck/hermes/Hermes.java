@@ -3,12 +3,14 @@ package com.daftduck.hermes;
 import com.daftduck.hermes.requests.TfLRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointArrivalsRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointByIdRequest;
+import com.daftduck.hermes.requests.stoppoint.StopPointByModeRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointCategoriesMetadataRequest;
 import com.daftduck.hermes.requests.stoppoint.StopPointSearchRequest;
 import com.daftduck.hermes.responses.ResponseMapper;
 import com.daftduck.hermes.responses.models.stoppoint.arrivals.StopPointArrival;
 import com.daftduck.hermes.responses.models.stoppoint.byid.StopPoint;
 import com.daftduck.hermes.responses.models.stoppoint.metadata.StopPointCategory;
+import com.daftduck.hermes.responses.models.stoppoint.mode.StopPointsResponse;
 import com.daftduck.hermes.responses.models.stoppoint.search.SearchResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -42,6 +44,10 @@ public class Hermes {
 
     public List<StopPointArrival> requestStopPointArrivals(String stopPointId) throws HermesException {
         return execute(new StopPointArrivalsRequest(appId, appKey, stopPointId), new TypeReference<List<StopPointArrival>>() {});
+    }
+
+    public StopPointsResponse requestStopPointByMode(String mode) throws HermesException {
+        return execute(new StopPointByModeRequest(appId, appKey, mode), new TypeReference<StopPointsResponse>() {});
     }
 
     public SearchResponse requestStopPointSearch(String query, String modes) throws HermesException {
